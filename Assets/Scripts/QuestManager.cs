@@ -6,6 +6,10 @@ public class QuestManager : MonoBehaviour
 {
     public GameObject[] guests;
     public int timeBetweenQuests = 20;
+    //public GameObject[] food; 
+    //public GameObject[] drinks;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,8 +44,7 @@ public class QuestManager : MonoBehaviour
                 //will add logic to check if guest already has a quest active
                 chosenGuest = guests[j];
                 print(j);
-                ChooseQuest();
-
+                chosenGuest.GetComponent<Guests>().canChooseQuest = true;
             }
         }
         else if (i == 1)
@@ -50,36 +53,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    void ChooseQuest()
-    {
-        int amountOfQuests = 5;
-        int l = Random.Range(0, amountOfQuests);
+    
 
-        switch (l)
-        {
-            case 0:
-                print("Quest" + l);
-                //Quest code goes here
-                break;
-            case 1:
-                print("Quest" + l);
-                //Quest code goes here
-                break;
-            case 2:
-                print("Quest" + l);
-                //Quest code goes here
-                break;
-            case 3:
-                print("Quest" + l);
-                //Quest code goes here
-                break;
-            case 4:
-                print("Quest" + l);
-                //Quest code goes here
-                break;
-            default:
-                print("out of range")
-                break;
-        }
-    }
+
 }

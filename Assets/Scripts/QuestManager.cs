@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public GameObject[] guests;
-    public int timeBetweenQuests = 5;
+    public int timeBetweenQuests = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +26,13 @@ public class QuestManager : MonoBehaviour
         StartCoroutine(QuestTimer());
     }
 
-    void SetQuest() {
+    void SetQuest()
+    {
         GameObject chosenGuest;
         //Generates a 50/50 chance to trigger a quest spawning
         int i = Random.Range(0, 2);
-        if (i == 0) {
+        if (i == 0)
+        {
             if (guests.Length > 0)
             {
                 //picks a random guest to give a quest to
@@ -38,10 +40,46 @@ public class QuestManager : MonoBehaviour
                 //will add logic to check if guest already has a quest active
                 chosenGuest = guests[j];
                 print(j);
+                ChooseQuest();
+
             }
         }
-        else if (i == 1) {
+        else if (i == 1)
+        {
             return;
+        }
+    }
+
+    void ChooseQuest()
+    {
+        int amountOfQuests = 5;
+        int l = Random.Range(0, amountOfQuests);
+
+        switch (l)
+        {
+            case 0:
+                print("Quest" + l);
+                //Quest code goes here
+                break;
+            case 1:
+                print("Quest" + l);
+                //Quest code goes here
+                break;
+            case 2:
+                print("Quest" + l);
+                //Quest code goes here
+                break;
+            case 3:
+                print("Quest" + l);
+                //Quest code goes here
+                break;
+            case 4:
+                print("Quest" + l);
+                //Quest code goes here
+                break;
+            default:
+                print("out of range")
+                break;
         }
     }
 }

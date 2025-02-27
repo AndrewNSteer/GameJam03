@@ -133,12 +133,17 @@ public class Guests : MonoBehaviour
 
     private void MusicChangeQuest()
     {
+        //need a current music variable and a random choice of other musics
+        //something like i = Random.Range(0, music.Length) and if music[i] != currentMusic then musicVar = music[i]
+        //need text requesting music changed ie ("Can you change the music to " + musicVar)
         //wants music changed
-        //identify when music changed
+        //identify when music changed (Set current music using a boombox with arrows or something)
     }
 
     private void LightingChangeQuest()
     {
+        //similar to music have a current light colour variable and have an array of colours
+        //Buttons on wall or a remote that can press to change light colour
         //wants lighting changed (colour or brightness)
         //identify when colour changed changed
     }

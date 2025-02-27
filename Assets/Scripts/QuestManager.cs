@@ -26,7 +26,7 @@ public class QuestManager : MonoBehaviour
     {
         print("Repeated");
         yield return new WaitForSeconds(timeBetweenQuests);
-        //SetQuest();
+        SetQuest();
         StartCoroutine(QuestTimer());
     }
 
@@ -44,11 +44,16 @@ public class QuestManager : MonoBehaviour
                 //will add logic to check if guest already has a quest active
                 chosenGuest = guests[j];
                 print(j);
-                chosenGuest.GetComponent<Guests>().canChooseQuest = true;
+                if (!chosenGuest.GetComponent<Guests>().hasQuest)
+                {
+                    chosenGuest.GetComponent<Guests>().canChooseQuest = true;
+                }
+                
             }
         }
         else if (i == 1)
         {
+            print("No Quest this time");
             return;
         }
     }

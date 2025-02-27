@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Guests : MonoBehaviour
 {
-    public bool canChooseQuest = true;
-    bool hasQuest = false;
+    public bool canChooseQuest = false;
+    public bool hasQuest = false;
     bool hasFoodQuest = false;
     bool hasDrinkQuest = false;
     //bool hasMusicQuest = false;
@@ -39,7 +39,7 @@ public class Guests : MonoBehaviour
 
     void ChooseQuest()
     {
-        int amountOfQuests = 5;
+        int amountOfQuests = 3;
         int l = Random.Range(0, amountOfQuests);
 
          //need to test if the switch case statement works

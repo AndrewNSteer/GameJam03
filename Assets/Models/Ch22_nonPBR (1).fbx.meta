@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Brick Project Studio/Apartment Kit/Common/Models/Apt_Props_02.fbx.meta
 guid: 0e214015319243446ba3885313244615
 ========
 guid: 174352b24be2afe4fa748e4bce8b27c7
 >>>>>>>> b131721 (Testing animations and updated character models):Assets/Models/Ch22_nonPBR (1).fbx.meta
+=======
+<<<<<<<< HEAD:Assets/Brick Project Studio/Apartment Kit/Common/Models/Bathroom_Corner_Tiles.fbx.meta
+guid: d265ac661f1c8d64386d043a4b4b8f9c
+========
+guid: 174352b24be2afe4fa748e4bce8b27c7
+>>>>>>>> origin/main:Assets/Models/Ch22_nonPBR (1).fbx.meta
+>>>>>>> origin/main
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []

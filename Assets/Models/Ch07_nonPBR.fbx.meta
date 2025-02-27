@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Brick Project Studio/Apartment Kit/Common/Models/Apt_Kit_02.fbx.meta
 guid: f4fc995b0b19f6f4cb2f760e432b5120
 ========
 guid: 5917ea4f69354a0439cd83645d5aab3d
 >>>>>>>> b131721 (Testing animations and updated character models):Assets/Models/Ch07_nonPBR.fbx.meta
+=======
+<<<<<<<< HEAD:Assets/Brick Project Studio/Apartment Kit/Common/Models/Apt_Rail.fbx.meta
+guid: 7c69e40725f2d1a4687ecf3e80b2dfac
+========
+guid: 5917ea4f69354a0439cd83645d5aab3d
+>>>>>>>> origin/main:Assets/Models/Ch07_nonPBR.fbx.meta
+>>>>>>> origin/main
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []

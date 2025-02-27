@@ -181,6 +181,8 @@ public class Guests : MonoBehaviour
         //Buttons on wall or a remote that can press to change light colour
         //wants lighting changed (colour or brightness)
         //identify when colour changed changed
+
+
     }
     
     private void FirstAidQuest()

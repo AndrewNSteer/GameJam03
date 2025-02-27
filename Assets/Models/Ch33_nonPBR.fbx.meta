@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/Ch33_nonPBR.fbx.meta
 guid: 51b4b12f6b1caec4484917b165e9fe02
+========
+guid: 1b6e569fd1e2faf48a6fec56b7178d7a
+>>>>>>>> origin/main:Assets/Models/Ch12_nonPBR.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []

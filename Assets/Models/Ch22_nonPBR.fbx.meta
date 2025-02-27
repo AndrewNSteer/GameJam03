@@ -1,9 +1,37 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5c43b342741dd224e9308b40519ccab3
+=======
+<<<<<<<< HEAD:Assets/Models/NotUsing/Bartending (2).fbx.meta
+guid: 8a4c309962b0020419aaa53cf13462fc
+========
+guid: 5c43b342741dd224e9308b40519ccab3
+>>>>>>>> origin/main:Assets/Models/Ch22_nonPBR.fbx.meta
+>>>>>>> origin/main
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch01_1001_Diffuse
+    second: {fileID: 2800000, guid: 0e8f4c97263c3e942841a5def59e5771, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch01_1001_Glossiness
+    second: {fileID: 2800000, guid: a99ed410d15e4cb4ab80a8bbb349b57c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch01_1001_Normal
+    second: {fileID: 2800000, guid: 9ddf61877729eed45b3bbe16d3c6979f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch01_1001_Specular
+    second: {fileID: 2800000, guid: 9a0de5aa36bea284688f13d16330bb95, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

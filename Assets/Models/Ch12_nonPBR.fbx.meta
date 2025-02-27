@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Models/Characters/characterMaterials/Ch22_nonPBR.fbx.meta
+guid: ede682780af2c1b429b33f4d68268f99
+========
 guid: 1b6e569fd1e2faf48a6fec56b7178d7a
+>>>>>>>> b131721 (Testing animations and updated character models):Assets/Models/Ch12_nonPBR.fbx.meta
+=======
+<<<<<<<< HEAD:Assets/Models/Ch33_nonPBR.fbx.meta
+guid: 51b4b12f6b1caec4484917b165e9fe02
+========
+guid: 1b6e569fd1e2faf48a6fec56b7178d7a
+>>>>>>>> origin/main:Assets/Models/Ch12_nonPBR.fbx.meta
+>>>>>>> origin/main
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []

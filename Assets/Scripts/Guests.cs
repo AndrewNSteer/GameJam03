@@ -1,48 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Guests : MonoBehaviour
 {
+    public GameObject[] music;
+    GameObject currentMusicRequest; 
+    GameObject musicRequest;
+    GameObject musicObject;
+
+    AudioClip musicPlaying; 
+
     public bool canChooseQuest = false;
     public bool hasQuest = false;
     bool hasFoodQuest = false;
     bool hasDrinkQuest = false;
-    //bool hasMusicQuest = false;
+    bool hasMusicQuest = false;
     //bool hasLightingQuest = false;
     bool hasFirstAidQuest = false;
 
     public GameObject foodText;
     public GameObject drinkText;
-    //public GameObject musicText;
+    public TextMeshPro musicText;
     //public GameObject lightingText;
     public GameObject firstAidText;
-
     public GameObject exclamationMark;
     
     // Start is called before the first frame update
     void Start()
     {
-        //DrinkQuest();
+        //MusicChangeQuest();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canChooseQuest && !hasQuest)
+        
+        musicPlaying = musicObject.GetComponent<AudioSource>().clip; //access audio playing
+
+        if (canChooseQuest && !hasQuest) 
         {
             ChooseQuest();
             hasQuest = true;
             canChooseQuest = false;
         }
+
+
+        if (hasMusicQuest && musicPlaying == musicRequest) //if player has quest, and the music playing is the same as the quest music request
+        {
+            print("music is served");
+
+            musicText.enabled = false; //SetActive(false);
+            exclamationMark.SetActive(false);
+
+            hasMusicQuest = false;
+            hasQuest = false;
+            canChooseQuest = true;
+        }
+        
     }
 
     void ChooseQuest()
     {
-        int amountOfQuests = 3;
+        int amountOfQuests = 5;
         int l = Random.Range(0, amountOfQuests);
 
-         //need to test if the switch case statement works
         switch (l)
         {
             case 0:
@@ -133,11 +157,22 @@ public class Guests : MonoBehaviour
 
     private void MusicChangeQuest()
     {
-        //need a current music variable and a random choice of other musics
-        //something like i = Random.Range(0, music.Length) and if music[i] != currentMusic then musicVar = music[i]
-        //need text requesting music changed ie ("Can you change the music to " + musicVar)
-        //wants music changed
-        //identify when music changed (Set current music using a boombox with arrows or something)
+        int i = Random.Range(0, music.Length);
+        //print("Method is being called"); //it works, but if statement doesn't
+        if (music[i] != currentMusicRequest) //if the music chosen is different to the music playing
+        {
+            musicRequest = music[i];
+            //print("Please change the music to " + musicRequest);
+            musicText.text = "Please change the music to " + musicRequest.ToString();
+        }
+        else if (music[i] == currentMusicRequest) //if the music chosen is the same as the music playing
+        {
+            MusicChangeQuest(); //resets method, so new number can be chosen
+            print("change random range");
+        }
+
+        exclamationMark.SetActive(true);
+        hasMusicQuest = true;
     }
 
     private void LightingChangeQuest()

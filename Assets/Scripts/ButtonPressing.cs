@@ -7,8 +7,7 @@ public class ButtonPressing : MonoBehaviour
     MusicBox musicScript;
     public GameObject musicBox;
     public Light roomLight;
-    //Declare buttons here
-    public GameObject blueButton;
+
     
 
     private void Start()

@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
     public GameObject[] guests;
     public int timeBetweenQuests = 20;
+    public float happiness;
+    public float maxHappiness = 100;
+    public int partyTime = 5;
+    public TextMeshProUGUI clockTime;
     //public GameObject[] food; 
     //public GameObject[] drinks;
 
@@ -13,21 +19,44 @@ public class QuestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        partyTime = 5;
         StartCoroutine(QuestTimer());
+        StartCoroutine(Clock());
+        happiness = maxHappiness;
+        clockTime.text = partyTime.ToString() + "pm";
     }
 
     // Update is called once per frame
     void Update()
     {
+        clockTime.text = partyTime.ToString() + "pm";
 
+        if (happiness <= 0 && partyTime < 11)
+        {
+            print("Game Over");
+            //Add loss thing here
+        }
+
+        if (partyTime >= 11 && happiness > 0)
+        {
+            print("Win");
+            //Add win thing here
+        }
     }
 
     IEnumerator QuestTimer()
     {
-        print("Repeated");
+        print(happiness);
         yield return new WaitForSeconds(timeBetweenQuests);
         SetQuest();
         StartCoroutine(QuestTimer());
+    }
+
+    IEnumerator Clock()
+    {
+            yield return new WaitForSeconds(60);
+            partyTime++;
+            StartCoroutine(Clock());
     }
 
     void SetQuest()

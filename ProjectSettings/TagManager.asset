@@ -8,6 +8,7 @@ TagManager:
   - Food
   - FirstAid
   - Button
+  - QM
   layers:
   - Default
   - TransparentFX

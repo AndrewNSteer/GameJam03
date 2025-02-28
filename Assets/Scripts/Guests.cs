@@ -18,7 +18,7 @@ public class Guests : MonoBehaviour
     bool hasFoodQuest = false;
     bool hasDrinkQuest = false;
     bool hasMusicQuest = false;
-    //bool hasLightingQuest = false;
+    bool hasLightQuest = false;
     bool hasFirstAidQuest = false;
 
     public GameObject foodText;
@@ -39,8 +39,8 @@ public class Guests : MonoBehaviour
     Color currentColour;
     public Color[] colourList;
     public Dictionary<Color, string> colourDict;
-            Color requestedColour;
-        bool colourRequested = false;
+    Color requestedColour;
+    bool colourRequested = false;
     // Start is called before the first frame update
 
     void Awake()
@@ -63,7 +63,7 @@ public class Guests : MonoBehaviour
 
         roomLight.color = White;
         currentColour = roomLight.color;
-        LightingChangeQuest();
+        //LightingChangeQuest();
     }
 
     // Update is called once per frame
@@ -91,13 +91,16 @@ public class Guests : MonoBehaviour
             hasQuest = false;
             canChooseQuest = true;
         }
-        
+
         if (colourRequested && requestedColour == currentColour)
         {
             Debug.Log("Colour match");
             lightText.gameObject.SetActive(false);
             exclamationMark.SetActive(false);
             colourRequested = false;  // Reset the request status after completing the action
+            hasLightQuest = false;
+            hasQuest = false;
+            canChooseQuest = true;
         }
         
     }
@@ -217,6 +220,8 @@ public class Guests : MonoBehaviour
 
     public void LightingChangeQuest()
     {
+
+        hasLightQuest = true;
         //similar to music have a current light colour variable and have an array of colours
         //Buttons on wall or a remote that can press to change light colour
         //wants lighting changed (colour or brightness)
@@ -239,24 +244,12 @@ public class Guests : MonoBehaviour
             string colourName = colourDict[colourList[i]];
             lightText.text = "I want the lights to be " + colourName;
         }
-
-
-            if (colourRequested && requestedColour == currentColour)
-            {
-                print("Colour match");
-                lightText.gameObject.SetActive(false);
-                exclamationMark.SetActive(false);
-                colourRequested = false;
-            } 
-
-
     }
     
     private void FirstAidQuest()
     {
         firstAidText.SetActive(true); //set active visual reference in scene, so player knows
         exclamationMark.SetActive(true);
-
         hasFirstAidQuest = true;
     }
 }

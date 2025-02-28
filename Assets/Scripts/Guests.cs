@@ -5,14 +5,6 @@ using TMPro;
 
 public class Guests : MonoBehaviour
 {
-    public GameObject[] music;
-    
-    GameObject currentMusicRequest; 
-    GameObject musicRequest;
-    GameObject musicObject;
-
-    AudioClip musicPlaying; 
-
     public bool canChooseQuest = false;
     public bool hasQuest = false;
     bool hasFoodQuest = false;
@@ -20,13 +12,19 @@ public class Guests : MonoBehaviour
     bool hasMusicQuest = false;
     bool hasLightQuest = false;
     bool hasFirstAidQuest = false;
-
+    
     public GameObject foodText;
     public GameObject drinkText;
     public GameObject musicText;
     public TextMeshProUGUI lightText;
     public GameObject firstAidText;
     public GameObject exclamationMark;
+
+    public GameObject musicObject;
+    public GameObject[] music;
+    GameObject currentMusicRequest;
+    GameObject musicRequest;
+    AudioClip musicPlaying;
 
     //Light Variables
     public Light roomLight;
@@ -59,7 +57,7 @@ public class Guests : MonoBehaviour
     }
     void Start()
     {
-        //MusicChangeQuest();
+        MusicChangeQuest();
 
         roomLight.color = White;
         currentColour = roomLight.color;
@@ -70,7 +68,7 @@ public class Guests : MonoBehaviour
     void Update()
     {
         currentColour = roomLight.color;
-        //musicPlaying = musicObject.GetComponent<AudioSource>().clip; //access audio playing
+        musicPlaying = musicObject.GetComponent<AudioSource>().clip; //access audio playing
 
         if (canChooseQuest && !hasQuest)
         {
@@ -210,7 +208,7 @@ public class Guests : MonoBehaviour
         }
         else if (music[i] == currentMusicRequest) //if the music chosen is the same as the music playing
         {
-            MusicChangeQuest(); //resets method, so new number can be chosen
+            //MusicChangeQuest(); //resets method, so new number can be chosen
             print("change random range");
         }
 

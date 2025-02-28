@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Brick Project Studio/Apartment Kit/Common/Models/Bathroom_Corner_Tiles.fbx.meta
 guid: d265ac661f1c8d64386d043a4b4b8f9c
+========
+guid: 174352b24be2afe4fa748e4bce8b27c7
+>>>>>>>> origin/main:Assets/Models/Ch22_nonPBR (1).fbx.meta
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []

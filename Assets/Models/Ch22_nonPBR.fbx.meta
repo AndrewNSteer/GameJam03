@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5c43b342741dd224e9308b40519ccab3
+=======
+<<<<<<<< HEAD:Assets/Models/NotUsing/Bartending (2).fbx.meta
+guid: 8a4c309962b0020419aaa53cf13462fc
+========
+guid: 5c43b342741dd224e9308b40519ccab3
+>>>>>>>> origin/main:Assets/Models/Ch22_nonPBR.fbx.meta
+>>>>>>> origin/main
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []

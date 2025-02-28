@@ -5,6 +5,7 @@ using TMPro;
 
 public class Guests : MonoBehaviour
 {
+    //Quest Bools
     public bool canChooseQuest = false;
     public bool hasQuest = false;
     bool hasFoodQuest = false;
@@ -13,18 +14,20 @@ public class Guests : MonoBehaviour
     bool hasLightQuest = false;
     bool hasFirstAidQuest = false;
     
+    //Icons
     public GameObject foodText;
     public GameObject drinkText;
     public GameObject musicText;
     public TextMeshProUGUI lightText;
     public GameObject firstAidText;
     public GameObject exclamationMark;
-
+    
+    //Music Variables
     public GameObject musicObject;
-    public GameObject[] music;
-    GameObject currentMusicRequest;
-    GameObject musicRequest;
+    public AudioClip[] music;
+    AudioClip musicRequest;
     AudioClip musicPlaying;
+    bool isMusicRequested = false;
 
     //Light Variables
     public Light roomLight;
@@ -38,7 +41,7 @@ public class Guests : MonoBehaviour
     public Color[] colourList;
     public Dictionary<Color, string> colourDict;
     Color requestedColour;
-    bool colourRequested = false;
+    bool isColourRequested = false;
     // Start is called before the first frame update
 
     void Awake()
@@ -78,27 +81,29 @@ public class Guests : MonoBehaviour
         }
 
 
-        if (hasMusicQuest && musicPlaying == musicRequest) //if player has quest, and the music playing is the same as the quest music request
+        if (isMusicRequested && musicRequest == musicPlaying) //if player has quest, and the music playing is the same as the quest music request
         {
             print("music is served");
 
-            //musicText.enabled = false; //SetActive(false);
+            musicText.SetActive(false);
             exclamationMark.SetActive(false);
 
+            isMusicRequested = false;
             hasMusicQuest = false;
             hasQuest = false;
             canChooseQuest = true;
         }
 
-        if (colourRequested && requestedColour == currentColour)
+        if (isColourRequested && requestedColour == currentColour)
         {
             Debug.Log("Colour match");
             lightText.gameObject.SetActive(false);
             exclamationMark.SetActive(false);
-            colourRequested = false;  // Reset the request status after completing the action
+            isColourRequested = false;  // Reset the request status after completing the action
             hasLightQuest = false;
             hasQuest = false;
             canChooseQuest = true;
+            
         }
         
     }
@@ -198,22 +203,27 @@ public class Guests : MonoBehaviour
 
     private void MusicChangeQuest()
     {
+        hasMusicQuest = true;
+
         int i = Random.Range(0, music.Length);
-        //print("Method is being called"); //it works, but if statement doesn't
-        if (music[i] != currentMusicRequest) //if the music chosen is different to the music playing
+        musicRequest = music[i];
+
+        if (musicRequest == musicPlaying) //if the music chosen is the same as to the music playing
         {
+            i = Random.Range(0, music.Length);
             musicRequest = music[i];
             //print("Please change the music to " + musicRequest);
-            musicText.GetComponent<TextMeshProUGUI>().text = "Please change the music to " + musicRequest.ToString();
-        }
-        else if (music[i] == currentMusicRequest) //if the music chosen is the same as the music playing
-        {
-            //MusicChangeQuest(); //resets method, so new number can be chosen
             print("change random range");
         }
+        else if (musicRequest != musicPlaying) //if the music chosen is different the music playing
+        {
+            isMusicRequested = true;
+            exclamationMark.SetActive(true);
+            musicText.SetActive(true);
+            musicText.GetComponent<TextMeshProUGUI>().text = "Please change the music to " + musicRequest.ToString();
+        }
 
-        exclamationMark.SetActive(true);
-        hasMusicQuest = true;
+        
     }
 
     public void LightingChangeQuest()
@@ -228,15 +238,15 @@ public class Guests : MonoBehaviour
         int i = Random.Range(0, colourList.Length);
         requestedColour = colourList[i];
 
-        if (requestedColour == currentColour && !colourRequested)
+        if (requestedColour == currentColour && !isColourRequested)
         {
             i = Random.Range(0, colourList.Length);
             requestedColour = colourList[i];
         }
 
-        else if (requestedColour != currentColour && !colourRequested)
+        else if (requestedColour != currentColour && !isColourRequested)
         {
-            colourRequested = true;
+            isColourRequested = true;
             lightText.gameObject.SetActive(true);
             exclamationMark.SetActive(true);
             string colourName = colourDict[colourList[i]];

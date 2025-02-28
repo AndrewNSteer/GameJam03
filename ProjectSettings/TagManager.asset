@@ -4,10 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Drinks
-  - Food
-  - FirstAid
-  - Button
+  - CanPickUp
   layers:
   - Default
   - TransparentFX
@@ -15,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - whatIsGround
-  - 
+  - NavMesh
+  - Player
   - 
   - 
   - 

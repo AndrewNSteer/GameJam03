@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 231571904}
   - component: {fileID: 231571903}
   - component: {fileID: 231571902}
-  - component: {fileID: 231571901}
   - component: {fileID: 231571900}
   - component: {fileID: 231571899}
   - component: {fileID: 231571905}
@@ -164,27 +163,6 @@ MonoBehaviour:
   rightSound: {fileID: 952624005}
   leftSound: {fileID: 1443738640}
 --- !u!65 &231571900
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231571898}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &231571901
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

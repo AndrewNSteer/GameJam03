@@ -5,42 +5,75 @@ using TMPro;
 
 public class Guests : MonoBehaviour
 {
-    public GameObject[] music;
-    GameObject currentMusicRequest; 
-    GameObject musicRequest;
-    GameObject musicObject;
-
-    AudioClip musicPlaying; 
-
+    //Quest Bools
     public bool canChooseQuest = false;
     public bool hasQuest = false;
     bool hasFoodQuest = false;
     bool hasDrinkQuest = false;
     bool hasMusicQuest = false;
-    //bool hasLightingQuest = false;
+    bool hasLightQuest = false;
     bool hasFirstAidQuest = false;
-
+    
+    //Icons
     public GameObject foodText;
     public GameObject drinkText;
-    public TextMeshPro musicText;
-    //public GameObject lightingText;
+    public GameObject musicText;
+    public TextMeshProUGUI lightText;
     public GameObject firstAidText;
     public GameObject exclamationMark;
     
+    //Music Variables
+    public GameObject musicObject;
+    public AudioClip[] music;
+    AudioClip musicRequest;
+    AudioClip musicPlaying;
+    bool isMusicRequested = false;
+
+    //Light Variables
+    public Light roomLight;
+    Color Red = Color.red;
+    Color Blue = Color.blue;
+    Color Pink = Color.magenta;
+    Color Green = Color.green;
+    Color Yellow = Color.yellow;
+    Color White = Color.white;
+    Color currentColour;
+    public Color[] colourList;
+    public Dictionary<Color, string> colourDict;
+    Color requestedColour;
+    bool isColourRequested = false;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        colourList = new Color[] { Color.red, Color.blue, Color.green, Color.yellow, Color.magenta, Color.white };
+        colourDict = new Dictionary<Color, string>
+        {
+            { Color.red, "Red" },
+            { Color.blue, "Blue" },
+            { Color.green, "Green" },
+            { Color.yellow, "Yellow" },
+            { Color.magenta, "Pink" },
+            { Color.white, "White" }
+        };
+        
+    }
     void Start()
     {
         //MusicChangeQuest();
-        
+
+        roomLight.color = White;
+        currentColour = roomLight.color;
+        //LightingChangeQuest();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentColour = roomLight.color;
         musicPlaying = musicObject.GetComponent<AudioSource>().clip; //access audio playing
 
-        if (canChooseQuest && !hasQuest) 
+        if (canChooseQuest && !hasQuest)
         {
             ChooseQuest();
             hasQuest = true;
@@ -48,16 +81,29 @@ public class Guests : MonoBehaviour
         }
 
 
-        if (hasMusicQuest && musicPlaying == musicRequest) //if player has quest, and the music playing is the same as the quest music request
+        if (isMusicRequested && musicRequest == musicPlaying) //if player has quest, and the music playing is the same as the quest music request
         {
             print("music is served");
 
-            musicText.enabled = false; //SetActive(false);
+            musicText.SetActive(false);
             exclamationMark.SetActive(false);
 
+            isMusicRequested = false;
             hasMusicQuest = false;
             hasQuest = false;
             canChooseQuest = true;
+        }
+
+        if (isColourRequested && requestedColour == currentColour)
+        {
+            Debug.Log("Colour match");
+            lightText.gameObject.SetActive(false);
+            exclamationMark.SetActive(false);
+            isColourRequested = false;  // Reset the request status after completing the action
+            hasLightQuest = false;
+            hasQuest = false;
+            canChooseQuest = true;
+            
         }
         
     }
@@ -157,39 +203,61 @@ public class Guests : MonoBehaviour
 
     private void MusicChangeQuest()
     {
+        hasMusicQuest = true;
+
         int i = Random.Range(0, music.Length);
-        //print("Method is being called"); //it works, but if statement doesn't
-        if (music[i] != currentMusicRequest) //if the music chosen is different to the music playing
+        musicRequest = music[i];
+
+        if (musicRequest == musicPlaying) //if the music chosen is the same as to the music playing
         {
+            i = Random.Range(0, music.Length);
             musicRequest = music[i];
             //print("Please change the music to " + musicRequest);
-            musicText.text = "Please change the music to " + musicRequest.ToString();
-        }
-        else if (music[i] == currentMusicRequest) //if the music chosen is the same as the music playing
-        {
-            MusicChangeQuest(); //resets method, so new number can be chosen
             print("change random range");
         }
+        else if (musicRequest != musicPlaying) //if the music chosen is different the music playing
+        {
+            isMusicRequested = true;
+            exclamationMark.SetActive(true);
+            musicText.SetActive(true);
+            musicText.GetComponent<TextMeshProUGUI>().text = "Please change the music to " + musicRequest.ToString();
+        }
 
-        exclamationMark.SetActive(true);
-        hasMusicQuest = true;
+        
     }
 
-    private void LightingChangeQuest()
+    public void LightingChangeQuest()
     {
+
+        hasLightQuest = true;
         //similar to music have a current light colour variable and have an array of colours
         //Buttons on wall or a remote that can press to change light colour
         //wants lighting changed (colour or brightness)
         //identify when colour changed changed
 
+        int i = Random.Range(0, colourList.Length);
+        requestedColour = colourList[i];
 
+        if (requestedColour == currentColour && !isColourRequested)
+        {
+            i = Random.Range(0, colourList.Length);
+            requestedColour = colourList[i];
+        }
+
+        else if (requestedColour != currentColour && !isColourRequested)
+        {
+            isColourRequested = true;
+            lightText.gameObject.SetActive(true);
+            exclamationMark.SetActive(true);
+            string colourName = colourDict[colourList[i]];
+            lightText.text = "I want the lights to be " + colourName;
+        }
     }
     
     private void FirstAidQuest()
     {
         firstAidText.SetActive(true); //set active visual reference in scene, so player knows
         exclamationMark.SetActive(true);
-
         hasFirstAidQuest = true;
     }
 }

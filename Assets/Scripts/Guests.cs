@@ -57,7 +57,7 @@ public class Guests : MonoBehaviour
     }
     void Start()
     {
-        MusicChangeQuest();
+        //MusicChangeQuest();
 
         roomLight.color = White;
         currentColour = roomLight.color;

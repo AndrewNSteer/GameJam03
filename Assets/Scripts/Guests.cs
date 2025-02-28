@@ -5,7 +5,9 @@ using TMPro;
 
 public class Guests : MonoBehaviour
 {
-    //Quest Bools
+
+    QuestManager qmScript;
+    public GameObject qm;
     public bool canChooseQuest = false;
     public bool hasQuest = false;
     bool hasFoodQuest = false;
@@ -61,10 +63,10 @@ public class Guests : MonoBehaviour
     void Start()
     {
         //MusicChangeQuest();
-
         roomLight.color = White;
         currentColour = roomLight.color;
         //LightingChangeQuest();
+
     }
 
     // Update is called once per frame
@@ -92,6 +94,7 @@ public class Guests : MonoBehaviour
             hasMusicQuest = false;
             hasQuest = false;
             canChooseQuest = true;
+            qmScript.happiness += 20;
         }
 
         if (isColourRequested && requestedColour == currentColour)
@@ -103,7 +106,6 @@ public class Guests : MonoBehaviour
             hasLightQuest = false;
             hasQuest = false;
             canChooseQuest = true;
-            
         }
         
     }
@@ -149,25 +151,27 @@ public class Guests : MonoBehaviour
             print("food is served");
 
             foodText.SetActive(false);
-            exclamationMark.SetActive(false); 
+            exclamationMark.SetActive(false);
             Destroy(collision.gameObject);
 
             hasFoodQuest = false;
             hasQuest = false;
             canChooseQuest = true;
+            qmScript.happiness += 20;
         }
 
-        else if(collision.collider.tag == "Drinks" && hasDrinkQuest)
+        else if (collision.collider.tag == "Drinks" && hasDrinkQuest)
         {
             print("drink is served");
 
             drinkText.SetActive(false);
             exclamationMark.SetActive(false);
             Destroy(collision.gameObject);
-            
+
             hasDrinkQuest = false;
             hasQuest = false;
             canChooseQuest = true;
+            qmScript.happiness += 20;
         }
 
         else if (collision.collider.tag == "FirstAid" && hasFirstAidQuest)
@@ -181,6 +185,7 @@ public class Guests : MonoBehaviour
             hasFirstAidQuest = false;
             hasQuest = false;
             canChooseQuest = true;
+            qmScript.happiness += 20;
         }
     }
 
@@ -188,7 +193,7 @@ public class Guests : MonoBehaviour
     {  
         foodText.SetActive(true); //set active visual reference in scene, so player knows
         exclamationMark.SetActive(true);
-
+        qmScript.happiness -= 20;
         hasFoodQuest = true;
     }
 
@@ -196,15 +201,13 @@ public class Guests : MonoBehaviour
     {
         drinkText.SetActive(true); //set active visual reference in scene, so player knows
         exclamationMark.SetActive(true);
-
+        qmScript.happiness -= 20;
         hasDrinkQuest = true;
     }
 
 
     private void MusicChangeQuest()
     {
-        hasMusicQuest = true;
-
         int i = Random.Range(0, music.Length);
         musicRequest = music[i];
 
@@ -228,7 +231,7 @@ public class Guests : MonoBehaviour
 
     public void LightingChangeQuest()
     {
-
+        qmScript.happiness -= 20;
         hasLightQuest = true;
         //similar to music have a current light colour variable and have an array of colours
         //Buttons on wall or a remote that can press to change light colour
@@ -256,6 +259,7 @@ public class Guests : MonoBehaviour
     
     private void FirstAidQuest()
     {
+        qmScript.happiness -= 20;
         firstAidText.SetActive(true); //set active visual reference in scene, so player knows
         exclamationMark.SetActive(true);
         hasFirstAidQuest = true;

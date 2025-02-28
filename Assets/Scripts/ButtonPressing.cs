@@ -7,8 +7,7 @@ public class ButtonPressing : MonoBehaviour
     MusicBox musicScript;
     public GameObject musicBox;
     public Light roomLight;
-    //Declare buttons here
-    public GameObject blueButton;
+
     
 
     private void Start()
@@ -26,7 +25,7 @@ public class ButtonPressing : MonoBehaviour
             //ray checks if button tag
             if (hit.collider.CompareTag("Button"))
             {                
-                if (Input.GetMouseButtonDown(0)) //currently left click but could change to E or smth
+                if (Input.GetKeyDown(KeyCode.E)) //currently left click but could change to E or smth
                 {
                     OnButtonPressed(hit.collider.gameObject);
                 }
@@ -49,6 +48,26 @@ public class ButtonPressing : MonoBehaviour
                 print("Lights go red");
                 roomLight.color = Color.red;
                 break;
+            case "GreenButton":
+                print("Lights go Green");
+                roomLight.color = Color.green;
+                break;
+
+            case "PinkButton":
+                print("Lights go Pink");
+                roomLight.color = Color.magenta;
+                break;    
+
+            case "WhiteButton":
+                print("Lights go White");
+                roomLight.color = Color.white;
+                break;
+
+            case "YellowButton":
+                print("Lights go Yellow");
+                roomLight.color = Color.yellow;
+                break;
+
             case "RightButton":
                 print("next music");
                 musicScript.NextSoundRight();

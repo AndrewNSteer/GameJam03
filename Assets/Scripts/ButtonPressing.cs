@@ -19,7 +19,7 @@ public class ButtonPressing : MonoBehaviour
             //ray checks if button tag
             if (hit.collider.CompareTag("button"))
             {                
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0)) //currently left click but could change to E or smth
                 {
                     OnButtonPressed(hit.collider.gameObject);
                 }

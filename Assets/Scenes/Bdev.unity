@@ -156,9 +156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music:
-  - {fileID: 8300000, guid: ac14360ca6a71a64093b284900779de3, type: 3}
+  - {fileID: 8300000, guid: 25694fa6d3d2d004aa3f70c76c7ea201, type: 3}
   - {fileID: 8300000, guid: 24172ed77899efd4fb3242ce5a76dddf, type: 3}
   - {fileID: 8300000, guid: e02968b76b99e9b419164f3b142f5a03, type: 3}
+  - {fileID: 8300000, guid: 602185b8bb7c58a49b27c1bf16d5dadc, type: 3}
   rightSound: {fileID: 952624005}
   leftSound: {fileID: 1443738640}
 --- !u!65 &231571900
@@ -259,9 +260,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ac14360ca6a71a64093b284900779de3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e02968b76b99e9b419164f3b142f5a03, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2191,9 +2192,10 @@ MonoBehaviour:
   exclamationMark: {fileID: 1053421486}
   musicObject: {fileID: 231571898}
   music:
-  - {fileID: 8300000, guid: ac14360ca6a71a64093b284900779de3, type: 3}
+  - {fileID: 8300000, guid: 25694fa6d3d2d004aa3f70c76c7ea201, type: 3}
   - {fileID: 8300000, guid: 24172ed77899efd4fb3242ce5a76dddf, type: 3}
   - {fileID: 8300000, guid: e02968b76b99e9b419164f3b142f5a03, type: 3}
+  - {fileID: 8300000, guid: 602185b8bb7c58a49b27c1bf16d5dadc, type: 3}
   roomLight: {fileID: 1458124182}
   colourList: []
 --- !u!1 &2125750896

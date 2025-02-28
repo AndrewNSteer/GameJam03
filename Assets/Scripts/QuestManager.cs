@@ -42,6 +42,7 @@ public class QuestManager : MonoBehaviour
             print("Win");
             //Add win thing here
         }
+        happiness = happiness;
     }
 
     IEnumerator QuestTimer()

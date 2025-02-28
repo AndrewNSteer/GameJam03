@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-  - CanPickUp
-=======
+  - QM
+  - Button
+  - FirstAid
   - Drinks
   - Food
-  - FirstAid
-  - Button
-  - QM
->>>>>>> origin/CDevelopment
+  - CanPickUp
   layers:
   - Default
   - TransparentFX

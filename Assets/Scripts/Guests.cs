@@ -48,6 +48,7 @@ public class Guests : MonoBehaviour
 
     void Awake()
     {
+        qmScript = qm.GetComponent<QuestManager>();
         colourList = new Color[] { Color.red, Color.blue, Color.green, Color.yellow, Color.magenta, Color.white };
         colourDict = new Dictionary<Color, string>
         {
@@ -144,7 +145,7 @@ public class Guests : MonoBehaviour
     }
 
     
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Food" && hasFoodQuest)
         {
@@ -189,7 +190,7 @@ public class Guests : MonoBehaviour
         }
     }
 
-    private void FoodQuest()
+    public void FoodQuest()
     {  
         foodText.SetActive(true); //set active visual reference in scene, so player knows
         exclamationMark.SetActive(true);
@@ -197,7 +198,7 @@ public class Guests : MonoBehaviour
         hasFoodQuest = true;
     }
 
-    private void DrinkQuest()
+    public void DrinkQuest()
     {
         drinkText.SetActive(true); //set active visual reference in scene, so player knows
         exclamationMark.SetActive(true);
@@ -206,7 +207,7 @@ public class Guests : MonoBehaviour
     }
 
 
-    private void MusicChangeQuest()
+    public void MusicChangeQuest()
     {
         int i = Random.Range(0, music.Length);
         musicRequest = music[i];
@@ -257,7 +258,7 @@ public class Guests : MonoBehaviour
         }
     }
     
-    private void FirstAidQuest()
+    public void FirstAidQuest()
     {
         qmScript.happiness -= 20;
         firstAidText.SetActive(true); //set active visual reference in scene, so player knows
